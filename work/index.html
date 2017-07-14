@@ -1,112 +1,203 @@
 <!DOCTYPE html>
 <html lang="ja">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="For PLISE Inventory management.">
-		<meta name="author" content="nishikawa_naoto">
-<!--		<link rel="icon" href="../../favicon.ico">-->
 
-		<title>PLISE備品管理システム</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="For PLISE Inventory management.">
+    <meta name="author" content="nishikawa_naoto">
+    <!--		<link rel="icon" href="../../favicon.ico">-->
 
-		<!-- Bootstrap core CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <title>PLISE備品管理システム</title>
 
-		<!-- Custom styles for this template -->
-		<link href="./style.css" rel="stylesheet">
-	</head>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
-	<body>
+    <!-- Custom styles for this template -->
+    <link href="./style.css" rel="stylesheet">
+</head>
 
-		<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-			<div class="container">
-				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+<body>
+
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+        <div class="container">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<a class="navbar-brand" href="#">PEM</a>
-				<div class="collapse navbar-collapse" id="navbarCollapse">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="#">依頼</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">状況</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">履歴</a>
-						</li>
-					</ul>
-					<form class="form-inline mt-2 mt-md-0">
-						<input class="form-control mr-sm-2" type="text" placeholder="Search">
-						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-					</form>
-				</div>
-			</div>
-		</nav>
+            <a class="navbar-brand" href="#">PEM</a>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#request">依頼</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#status">状況</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#log">履歴</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-			<div class="jumbotron">
-				<div class="container">
-					<h1 style="padding-bottom: 1rem;">PLISE Equipment Manegement System</h1>
-					<div class="container">
-						<h3 style="padding-bottom: 1rem;">備品購入依頼</h3>
-						<form class="form-horizontal">
-							<div class="form-group">
-								<div class="col-md-6">
-									<input type="text" name="name" class="form-control" placeholder="依頼者名">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-6">
-									<input type="text" name="password" class="form-control" placeholder="担当者名">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-6">
-									<input type="text" name="password" class="form-control" placeholder="物品名">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-6">
-									<input type="text" name="password" class="form-control" placeholder="数量">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-6">
-									<input type="text" name="password" class="form-control" placeholder="備考 ( e.g. http://hogehoge_shop.com/ )">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-6">
-									<button type="submit" class="btn btn-default">送信</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
+    <div class="jumbotron">
+        <div class="container">
+            <h1 style="padding-bottom: 1rem;">PLISE Equipment Manegement System</h1>
+            <h2 id="request" style="padding-bottom: 1rem;">備品購入依頼</h2>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="text" name="password" class="form-control" placeholder="物品名 ( e.g. ハムカツ)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="text" name="password" class="form-control" placeholder="数量 ( e.g. 1個)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="text" name="name" class="form-control" placeholder="依頼者名 ( e.g. 西川直登)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="text" name="password" class="form-control" placeholder="備考 ( e.g. おやつとして )">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="text" name="password" class="form-control" placeholder="URL ( e.g. http://hogehoge_shop.com/ )">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-default">送信</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
-			<div class="container">
-				<h1>依頼済み備品一覧</h1>
-				<div class="panel panel-default">
-					<div class="panel-heading">タイトル</div>
-					<div class="panel-body">
-						デフォルトのパネル
-					</div>
-					<div class="panel-body">
-						デフォルトのパネル
-					</div>
-				</div>
-			</div>
+    <div class="container" style="padding-bottom: 2rem;">
+        <h1 id="status" style="padding-bottom: 1rem;">依頼済み備品一覧</h1>
+        <div class="card">
+            <div class="card-block">
+                <h3 class="card-title">ハムカツ</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td style="width: 20%;">数量</td>
+                            <td style="width: 80%;">1</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 20%;">依頼者</td>
+                            <td style="width: 80%;">西川直登</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 20%;">備考</td>
+                            <td style="width: 80%;">おやつとして</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 20%;">URL</td>
+                            <td style="width: 80%;"><a href="#">http://hogehoge_shop.com/</a></td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="card-footer">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">依頼</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" href="#">発注</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" href="#">完了</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" href="#">却下</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer list-group-item-info">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" href="#">依頼</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link active" href="#">発注</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" href="#">完了</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" href="#">却下</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer list-group-item-success">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" href="#">依頼</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" href="#">発注</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">完了</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" href="#">却下</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer list-group-item-danger">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" href="#">依頼</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" href="#">発注</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" href="#">完了</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">却下</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
+    <div class="container">
+        <h1 id="log" style="padding-bottom: 1rem;">依頼履歴</h1>
+        <ul class="list-group">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item list-group-item-success">Dapibus ac facilisis in</li>
+            <li class="list-group-item list-group-item-info">Morbi leo risus</li>
+            <li class="list-group-item list-group-item-danger">Vestibulum at eros</li>
+        </ul>
+    </div>
 
-		<!-- Bootstrap core JavaScript
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">If you found bugs, plaese notice and contact nishikawa_naoto</span>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
 ================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-		<script src="../../dist/js/bootstrap.min.js"></script>
-		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-		<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-	</body>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script>
+        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="./application.js"></script>
+</body>
+
 </html>
