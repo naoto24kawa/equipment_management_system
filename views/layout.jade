@@ -1,7 +1,38 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='For PLISE Inventory management.')
+        meta(name='author', content='nishikawa_naoto')
+    
+        title PLISE備品管理システム
+    
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ', crossorigin='anonymous')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    
+    body
+        nav.navbar.navbar-toggleable-md.navbar-inverse.fixed-top.bg-inverse
+        div.container
+            button(type='button', data-toggle='collapse', data-target='#navbarCollapse', aria-controls='navbarCollapse', aria-expanded='false', aria-label='Toggle navigation').navbar-toggler.navbar-toggler-right
+                span.navbar-toggler-icon
+            a(href='#').navbar-brand PEM
+            div#navbarCollapse.collapse.navbar-collapse
+                ul.navbar-nav.mr-auto
+                    li.nav-item
+                        a(href= request_link).nav-link 依頼
+                    li.nav-item
+                        a(href= status_link).nav-link 状況
+                    li.nav-item
+                        a(href= log_link).nav-link 履歴
+                        
     block content
+    
+    footer.footer
+        div.container
+            span.text-muted If you found bugs, plaese notice and contact nishikawa_naoto
+            
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+    script window.jQuery || document.write('<script src='../../assets/js/vendor/jquery.min.js'><\/script>')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
+    script(src='/javascripts/application.js')
