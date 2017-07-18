@@ -27,25 +27,25 @@ router.post('/api/request', function (req, res, next) {
     var equipment;
 
     User.findOne({
-        name: req.user_name
+        name: req.body.user_name
     }).exec(function (err, existUser) {
         if (err)
             res.send(err);
         if (existUser !== "" || existUser === null) {
             user = new User();
-            user.name = req.user_name;
+            user.name = req.body.user_name;
         } else
             user = existUser;
     });
 
     Equipment.findOne({
-        name: req.equipment_name
+        name: req.body.equipment_name
     }).exec(function (err, existEquip) {
         if (err)
             res.send(err);
         if (existEquip !== "" || existEquip === null) {
             equipment = new Equipment();
-            user.name = req.equipment_name;
+            user.name = req.body.equipment_name;
         } else
             equipment = existEquipment;
     });
@@ -55,9 +55,9 @@ router.post('/api/request', function (req, res, next) {
 
     request.user = user;
     request.equipment = equipment;
-    request.quantity = req.quantity;
-    request.remarks = req.remarks;
-    request.url = req.url;
+    request.quantity = req.body.quantity;
+    request.remarks = req.body.remarks;
+    request.url = req.body.url;
     request.timestamp = ISODate(d.toISOString + 'T00+09:00');;
     request.status = 1;
 
