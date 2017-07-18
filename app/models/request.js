@@ -10,11 +10,11 @@ var RequestSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Equipment'
     },
-    quantity: Integer,
+    quantity: integer,
     remarks: String,
     url: String,
     timestamp: Date,
-    status: Integer
+    status: integer
     /*
      * ステータス一覧
      * 1: 依頼
