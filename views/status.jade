@@ -27,7 +27,7 @@ div.container(style="padding-bottom: 2rem;")
                 else
                     div.card-footer
                         ul.nav.nav-pills
-                            li.nav-item(class= req.status == 1 ? 'active' : 'text-muted')
+                            li.nav-item(class=#{req.status == 1 ? 'active' : 'text-muted'})
                                 a(href="#").nav-link.text-muted 依頼
                             li.nav-item(class= req.status == 2 ? 'active' : 'text-muted')
                                 a(href="#").nav-link.text-muted 発注
