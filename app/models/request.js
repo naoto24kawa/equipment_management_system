@@ -1,6 +1,9 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var User = require('../app/models/user');
+var Equipment = require('../app/models/equipment');
+
 var RequestSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,

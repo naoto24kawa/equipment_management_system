@@ -34,6 +34,10 @@ router.post('/api/request', function (req, res, next) {
         if (existUser !== "" || existUser === null) {
             user = new User();
             user.name = req.body.user_name;
+            user.save(function (err) {
+                if (err)
+                    res.send(err);
+            });
         } else
             user = existUser;
     });
@@ -45,7 +49,11 @@ router.post('/api/request', function (req, res, next) {
             res.send(err);
         if (existEquip !== "" || existEquip === null) {
             equipment = new Equipment();
-            user.name = req.body.equipment_name;
+            equipment.name = req.body.equipment_name;
+            equipment.save(function (err) {
+                if (err)
+                    res.send(err);
+            });
         } else
             equipment = existEquipment;
     });
