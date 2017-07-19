@@ -7,8 +7,6 @@ mongoose.connect('mongodb://localhost/equipment_management_system');
 
 // モデルの宣言
 var Request = require('../app/models/request');
-var User = require('../app/models/user');
-var Equipment = require('../app/models/equipment');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
