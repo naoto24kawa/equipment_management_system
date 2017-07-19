@@ -1,49 +1,49 @@
-div.container(style='padding-bottom: 2rem;')
-        h1#status(style='padding-bottom: 1rem;') 依頼済み備品一覧
+div.container(style="padding-bottom: 2rem;")
+        h1#status(style="padding-bottom: 1rem;") 依頼済み備品一覧
         for req, index in requests
             div.card(style='margin-bottom: 1rem;')
                 div.card-block
                     h3.card-title #{req.equipment}
                     table.table
                         tr
-                            td(style='width: 20%;') 数量
-                            td(style='width: 80%;') #{req.quantity}
+                            td(style="width: 20%;") 数量
+                            td(style="width: 80%;") #{req.quantity}
                         tr
-                            td(style='width: 20%;') 依頼者
-                            td(style='width: 80%;') #{req.user}
+                            td(style="width: 20%;") 依頼者
+                            td(style="width: 80%;") #{req.user}
                         tr
-                            td(style='width: 20%;') 備考
-                            td(style='width: 80%;') #{req.remarks}
+                            td(style="width: 20%;") 備考
+                            td(style="width: 80%;") #{req.remarks}
                         tr
-                            td(style='width: 20%;') URL
-                            td(style='width: 80%;')
-                                a(href='#') #{req.url}
+                            td(style="width: 20%;") URL
+                            td(style="width: 80%;")
+                                a(href="#") #{req.url}
                 div.card-footer(class=req.status === 2 ? 'list-group-item-info'
                     : req.status === 3 ? 'list-group-item-success'
                     : req.status === 4 ? 'list-group-item-danger'
                     : '')
                     ul.nav.nav-pills
                         li.nav-item
-                            form(method='POST', id='status_request#{index}', action='/api/request', target='_self')
-                                input(type='hidden', name='_method', value='PUT')
-                                input(type='hidden', name='request_id', value=req._id)
-                                input(type='hidden', name='status', value=1)
-                                a.nav-link(href='javascript:document.getElementById('status_request#{index}').submit();', class=req.status === 1 ? 'active' : 'text-muted') 依頼
+                            form(method="POST", id="status_request#{index}", action="/api/request", target='_self')
+                                input(type="hidden", name="_method", value='PUT')
+                                input(type="hidden", name="request_id", value=req._id)
+                                input(type="hidden", name="status", value=1)
+                                a.nav-link(href="javascript:document.getElementById('status_request#{index}').submit();", class=req.status === 1 ? 'active' : 'text-muted') 依頼
                         li.nav-item
-                            form(method='POST', id='status_order#{index}', action='/api/request', target='_self')
-                                input(type='hidden', name='_method', value='PUT')
-                                input(type='hidden', name='request_id', value=req._id)
-                                input(type='hidden', name='status', value=2)
-                                a.nav-link(href='javascript:document.getElementById('status_order#{index}').submit();', class=req.status === 2 ? 'active' : 'text-muted') 発注
+                            form(method="POST", id="status_order#{index}", action="/api/request", target='_self')
+                                input(type="hidden", name="_method", value='PUT')
+                                input(type="hidden", name="request_id", value=req._id)
+                                input(type="hidden", name="status", value=2)
+                                a.nav-link(href="javascript:document.getElementById('status_order#{index}').submit();", class=req.status === 2 ? 'active' : 'text-muted') 発注
                         li.nav-item
-                            form(method='POST', id='status_finish#{index}', action='/api/request', target='_self')
-                                input(type='hidden', name='_method', value='PUT')
-                                input(type='hidden', name='request_id', value=req._id)
-                                input(type='hidden', name='status', value=3)
-                                a.nav-link(href='javascript:document.getElementById('status_finish#{index}').submit();', class=req.status === 3 ? 'active' : 'text-muted') 完了
+                            form(method="POST", id="status_finish#{index}", action="/api/request", target='_self')
+                                input(type="hidden", name="_method", value='PUT')
+                                input(type="hidden", name="request_id", value=req._id)
+                                input(type="hidden", name="status", value=3)
+                                a.nav-link(href="javascript:document.getElementById('status_finish#{index}').submit();", class=req.status === 3 ? 'active' : 'text-muted') 完了
                         li.nav-item
-                            form(method='POST', id='status_reject#{index}', action='/api/request', target='_self')
-                                input(type='hidden', name='_method', value='PUT')
-                                input(type='hidden', name='request_id', value=req._id)
-                                input(type='hidden', name='status', value=4)
-                                a.nav-link(href='javascript:document.getElementById('status_reject#{index}').submit();', class=req.status === 4 ? 'active' : 'text-muted') 却下
+                            form(method="POST", id="status_reject#{index}", action="/api/request", target='_self')
+                                input(type="hidden", name="_method", value='PUT')
+                                input(type="hidden", name="request_id", value=req._id)
+                                input(type="hidden", name="status", value=4)
+                                a.nav-link(href="javascript:document.getElementById('status_reject#{index}').submit();", class=req.status === 4 ? 'active' : 'text-muted') 却下
