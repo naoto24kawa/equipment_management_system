@@ -11,8 +11,6 @@ router.get('/api/request', function (req, res, next) {
         .sort({
             'timestamp': -1
         })
-        .populate('user')
-        .populate('equipment')
         .exec(function (err, requests) {
             if (err)
                 res.send(err);

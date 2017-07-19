@@ -15,8 +15,6 @@ router.get('/', function (req, res, next) {
             'timestamp': -1
         })
         .limit(20)
-        .populate('user')
-        .populate('equipment')
         .exec(function (err, requests) {
             if (err)
                 res.send(err);
