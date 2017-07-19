@@ -41,6 +41,8 @@ router.post('/api/request', function (req, res, next) {
         } else
             user = existUser;
     });
+    
+    console.log(user);
 
     Equipment.findOne({
         name: req.body.equipment_name
@@ -57,11 +59,13 @@ router.post('/api/request', function (req, res, next) {
         } else
             equipment = existEquipment;
     });
+    
+    console.log(equipment);
 
     var request = new Request();
 
-    request.user = user._id;
-    request.equipment = equipment._id;
+    request.user = user;
+    request.equipment = equipment;
     request.quantity = req.body.quantity;
     request.remarks = req.body.remarks;
     request.url = req.body.url;
@@ -72,7 +76,8 @@ router.post('/api/request', function (req, res, next) {
         if (err)
             res.send(err);
         res.json({
-            message: 'New Request created!'
+            message: 'New Request created!',
+            requests
         });
     });
 });
