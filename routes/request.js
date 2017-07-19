@@ -31,14 +31,14 @@ router.post('/api/request', function (req, res, next) {
     request.quantity = req.body.quantity;
     request.remarks = req.body.remarks;
     request.url = req.body.url;
-    request.timestamp = ISODate(d.toISOString + 'T00+09:00');;
+    request.timestamp = Date.now();
     request.status = 1;
 
     request.save(function (err) {
         if (err)
             res.send(err);
         res.json({
-            message: 'New Request created!'
+            message: 'New Request created!',
         });
     });
 });
