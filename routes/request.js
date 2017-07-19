@@ -40,7 +40,7 @@ router.post('/api/request', function (req, res, next) {
 
 router.put('/api/request', function (req, res, next) {
 
-    Request.findById(req.params.request_id, function (err, request) {
+    Request.findById(req.body.request_id, function (err, request) {
         if (err)
             res.send(err);
         request.status = req.body.status;
