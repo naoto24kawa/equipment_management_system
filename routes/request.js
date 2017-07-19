@@ -60,8 +60,8 @@ router.post('/api/request', function (req, res, next) {
 
     var request = new Request();
 
-    request.user = user;
-    request.equipment = equipment;
+    request.user = user._id;
+    request.equipment = equipment._id;
     request.quantity = req.body.quantity;
     request.remarks = req.body.remarks;
     request.url = req.body.url;
