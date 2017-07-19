@@ -2,7 +2,7 @@ div.jumbotron
     div.container
         h1(style='padding-bottom: 1rem;') PLISE Equipment Manegement System
         h2#request(style='padding-bottom: 1rem;') 備品購入依頼
-        form.form-horizontal(method='POST', target='/api/request')
+        form.form-horizontal(method='POST', action='/api/request', target='_self')
             div.form-group
                 div.col-md-6
                     input(type='text', name='equipment_name', class='form-control', placeholder='物品名 ( e.g. ハムカツ)')
