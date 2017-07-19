@@ -33,10 +33,9 @@ router.post('/api/request', function (req, res, next) {
     request.save(function (err) {
         if (err)
             res.send(err);
-        res.json({
-            message: 'New Request created!',
-        });
+        res.redirect('/');
     });
+    
 });
 
 module.exports = router;
