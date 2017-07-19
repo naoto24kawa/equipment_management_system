@@ -27,11 +27,11 @@ div.container(style="padding-bottom: 2rem;")
                 else
                     div.card-footer
                         ul.nav.nav-pills
-                            li.nav-item(class=req.status === 1 ? 'active' : 'text-muted')
-                                a(href="#").nav-link.text-muted 依頼
-                            li.nav-item(class=req.status === 2 ? 'active' : 'text-muted')
-                                a(href="#").nav-link.text-muted 発注
-                            li.nav-item(class=req.status === 3 ? 'active' : 'text-muted')
-                                a(href="#").nav-link.text-muted 完了
-                            li.nav-item(class=req.status === 4 ? 'active' : 'text-muted')
-                                a(href="#").nav-link.text-muted 却下
+                            li.nav-item
+                                a(href="#").nav-link(class=req.status === 1 ? 'active' : 'text-muted') 依頼
+                            li.nav-item
+                                a(href="#").nav-link(class=req.status === 2 ? 'active' : 'text-muted') 発注
+                            li.nav-item
+                                a(href="#").nav-link(class=req.status === 3 ? 'active' : 'text-muted') 完了
+                            li.nav-item
+                                a(href="#").nav-link(class=req.status === 4 ? 'active' : 'text-muted') 却下
