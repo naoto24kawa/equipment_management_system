@@ -18,54 +18,54 @@ div.container(style="padding-bottom: 2rem;")
                             td(style="width: 20%;") URL
                             td(style="width: 80%;")
                                 a(href="#") #{req.url}
-            case req.status
-                when 0: div.card-footer
-                        ul.nav.nav-pills
-                            li.nav-item
-                                a(href="#").nav-link.text-muted 依頼
-                            li.nav-item
-                                a(href="#").nav-link.text-muted 発注
-                            li.nav-item
-                                a(href="#").nav-link.text-muted 完了
-                            li.nav-item
-                                a(href="#").nav-link.text-muted 却下
-                when 1: div.card-footer
-                        ul.nav.nav-pills
-                            li.nav-item
-                                a(href="#").nav-link.active 依頼
-                            li.nav-item
-                                a(href="#").nav-link.text-muted 発注
-                            li.nav-item
-                                a(href="#").nav-link.text-muted 完了
-                            li.nav-item
-                                a(href="#").nav-link.text-muted 却下
-                when 2: div.card-footer.list-group-item-info
-                        ul.nav.nav-pills
-                            li.nav-item
-                                a(href="#").nav-link.text-muted 依頼
-                            li.nav-item
-                                a(href="#").nav-link.active 発注
-                            li.nav-item
-                                a(href="#").nav-link.text-muted 完了
-                            li.nav-item
-                                a(href="#").nav-link.text-muted 却下
-                when 3: div.card-footer.list-group-item-success
-                        ul.nav.nav-pills
-                            li.nav-item
-                                a(href="#").nav-link.text-muted 依頼
-                            li.nav-item
-                                a(href="#").nav-link.text-muted 発注
-                            li.nav-item
-                                a(href="#").nav-link.active 完了
-                            li.nav-item
-                                a(href="#").nav-link.text-muted 却下
-                when 4: div.card-footer.list-group-item-danger
-                        ul.nav.nav-pills
-                            li.nav-item
-                                a(href="#").nav-link.text-muted 依頼
-                            li.nav-item
-                                a(href="#").nav-link.text-muted 発注
-                            li.nav-item
-                                a(href="#").nav-link.text-muted 完了
-                            li.nav-item
-                                a(href="#").nav-link.active 却下
+                case req.status
+                    when 0: div.card-footer
+                            ul.nav.nav-pills
+                                li.nav-item
+                                    a(href="#").nav-link.text-muted 依頼
+                                li.nav-item
+                                    a(href="#").nav-link.text-muted 発注
+                                li.nav-item
+                                    a(href="#").nav-link.text-muted 完了
+                                li.nav-item
+                                    a(href="#").nav-link.text-muted 却下
+                    when 1: div.card-footer
+                            ul.nav.nav-pills
+                                li.nav-item
+                                    a(href="#").nav-link.active 依頼
+                                li.nav-item
+                                    a(href="#").nav-link.text-muted 発注
+                                li.nav-item
+                                    a(href="#").nav-link.text-muted 完了
+                                li.nav-item
+                                    a(href="#").nav-link.text-muted 却下
+                    when 2: div.card-footer.list-group-item-info
+                            ul.nav.nav-pills
+                                li.nav-item
+                                    a(href="#").nav-link.text-muted 依頼
+                                li.nav-item
+                                    a(href="#").nav-link.active 発注
+                                li.nav-item
+                                    a(href="#").nav-link.text-muted 完了
+                                li.nav-item
+                                    a(href="#").nav-link.text-muted 却下
+                    when 3: div.card-footer.list-group-item-success
+                            ul.nav.nav-pills
+                                li.nav-item
+                                    a(href="#").nav-link.text-muted 依頼
+                                li.nav-item
+                                    a(href="#").nav-link.text-muted 発注
+                                li.nav-item
+                                    a(href="#").nav-link.active 完了
+                                li.nav-item
+                                    a(href="#").nav-link.text-muted 却下
+                    when 4: div.card-footer.list-group-item-danger
+                            ul.nav.nav-pills
+                                li.nav-item
+                                    a(href="#").nav-link.text-muted 依頼
+                                li.nav-item
+                                    a(href="#").nav-link.text-muted 発注
+                                li.nav-item
+                                    a(href="#").nav-link.text-muted 完了
+                                li.nav-item
+                                    a(href="#").nav-link.active 却下
