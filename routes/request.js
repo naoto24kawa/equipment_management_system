@@ -35,7 +35,23 @@ router.post('/api/request', function (req, res, next) {
             res.send(err);
         res.redirect('/');
     });
-    
+
+});
+
+router.put('/api/request', function (req, res, next) {
+
+    Request.findById(req.params.request_id, function (err, request) {
+        if (err)
+            res.send(err);
+        request.status = req.body.status;
+
+        request.save(function (err) {
+            if (err)
+                res.send(err);
+            res.redirect('/');
+        });
+    });
+
 });
 
 module.exports = router;
