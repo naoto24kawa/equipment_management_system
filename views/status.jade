@@ -20,7 +20,7 @@ div.container(style="padding-bottom: 2rem;")
                                 a(href="#") #{req.url}
                 div.card-footer(class=req.status === 2 ? 'list-group-item-info'
                     : req.status === 3 ? 'list-group-item-success'
-                    : req.status === 4 ? 'list-group-item-danger')
+                    : req.status === 4 ? 'list-group-item-danger' : '')
                     ul.nav.nav-pills
                         li.nav-item
                             form(method="POST", name="status_request", action="/api/request", target='_self')
