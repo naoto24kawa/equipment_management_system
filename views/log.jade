@@ -3,8 +3,8 @@ div.container
     ul.list-group
         for req in requests
             case req.status
-                case 0: li.list-group-item #{req.equipment_name}
-                case 1: li.list-group-item #{req.equipment_name}
-                case 2: li.list-group-item.list-group-item-info #{req.equipment_name}
-                case 3: li.list-group-itemlist-group-item-success #{req.equipment_name}
-                case 4: li.list-group-item.list-group-item-danger #{req.equipment_name}
+                when 0: li.list-group-item #{req.equipment_name}
+                when 1: li.list-group-item #{req.equipment_name}
+                when 2: li.list-group-item.list-group-item-info #{req.equipment_name}
+                when 3: li.list-group-itemlist-group-item-success #{req.equipment_name}
+                when 4: li.list-group-item.list-group-item-danger #{req.equipment_name}
