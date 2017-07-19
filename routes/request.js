@@ -77,7 +77,6 @@ router.post('/api/request', function (req, res, next) {
             res.send(err);
         res.json({
             message: 'New Request created!',
-            requests
         });
     });
 });
