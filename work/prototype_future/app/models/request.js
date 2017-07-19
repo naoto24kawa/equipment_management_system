@@ -2,8 +2,14 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var RequestSchema = new Schema({
-    user: String,
-    equipment: String,
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    equipment: {
+        type: Schema.Types.ObjectId,
+        ref: 'Equipment'
+    },
     quantity: Number,
     remarks: String,
     url: String,

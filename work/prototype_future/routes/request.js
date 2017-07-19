@@ -23,11 +23,38 @@ router.get('/api/request', function (req, res, next) {
 });
 
 router.post('/api/request', function (req, res, next) {
+    var user;
+    var equipment;
+
+    User.findOne({
+        name: req.body.user_name
+    }).exec(function (err, existUser) {
+        if (err)
+            res.send(err);
+        if (existUser !== "" || existUser === null) {
+            user = new User();
+            user.name = req.body.user_name;
+        } else
+            user = existUser;
+    });
+
+    Equipment.findOne({
+        name: req.body.equipment_name
+    }).exec(function (err, existEquip) {
+        if (err)
+            res.send(err);
+        if (existEquip !== "" || existEquip === null) {
+            equipment = new Equipment();
+            user.name = req.body.equipment_name;
+        } else
+            equipment = existEquipment;
+    });
 
     var request = new Request();
+    var d = new Date();
 
-    request.user = req.body.user_name;
-    request.equipment = req.body.equipment_name;
+    request.user = user;
+    request.equipment = equipment;
     request.quantity = req.body.quantity;
     request.remarks = req.body.remarks;
     request.url = req.body.url;
