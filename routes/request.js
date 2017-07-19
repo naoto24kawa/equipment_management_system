@@ -31,7 +31,7 @@ router.post('/api/request', function (req, res, next) {
     }).exec(function (err, existUser) {
         if (err)
             res.send(err);
-        if (existUser !== "" || existUser === null) {
+        if (!existUser) {
             user = new User();
             user.name = req.body.user_name;
             user.save(function (err) {
@@ -41,7 +41,7 @@ router.post('/api/request', function (req, res, next) {
         } else
             user = existUser;
     });
-    
+
     console.log(user);
 
     Equipment.findOne({
@@ -49,7 +49,7 @@ router.post('/api/request', function (req, res, next) {
     }).exec(function (err, existEquip) {
         if (err)
             res.send(err);
-        if (existEquip !== "" || existEquip === null) {
+        if (!existEquip) {
             equipment = new Equipment();
             equipment.name = req.body.equipment_name;
             equipment.save(function (err) {
@@ -57,9 +57,9 @@ router.post('/api/request', function (req, res, next) {
                     res.send(err);
             });
         } else
-            equipment = existEquipment;
+            equipment = existEquip;
     });
-    
+
     console.log(equipment);
 
     var request = new Request();
