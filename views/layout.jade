@@ -12,25 +12,14 @@ html
         link(rel='stylesheet', href='/stylesheets/style.css')
     
     body
-        nav.navbar.navbar-toggleable-md.navbar-inverse.fixed-top.bg-inverse
-            div.container
-                a.navbar-brand(href='#') PEM
-                div#navbarCollapse.collapse.navbar-collapse
-                    ul.navbar-nav.mr-auto
-                        li.nav-item
-                            a(href=request_link).nav-link 依頼
-                        li.nav-item
-                            a(href=status_link).nav-link 状況
-                        li.nav-item
-                            a(href=log_link).nav-link 履歴
-                        
-    block content
     
-    footer.footer
-        div.container
-            span.text-muted If you found bugs, plaese notice and contact nishikawa_naoto
-            
-    script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
-    script window.jQuery || document.write('<script src='../../assets/js/vendor/jquery.min.js'><\/script>')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
-    script(src='/javascripts/application.js')
+        include navbar.jade
+                        
+        block content
+
+        include footer.jade
+
+        script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+        script window.jQuery || document.write('<script src='../../assets/js/vendor/jquery.min.js'><\/script>')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
+        script(src='/javascripts/application.js')
