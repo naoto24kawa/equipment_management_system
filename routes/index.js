@@ -28,8 +28,6 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/signin', function (req, res, next) {
-    if (err)
-        res.send(err);
     res.render('sign', {
         request_link: '#request',
         status_link: '#status',
@@ -46,8 +44,6 @@ router.get('/signin', function (req, res, next) {
 //});
 
 router.get('/signup', function (req, res, next) {
-    if (err)
-        res.send(err);
     res.render('sign', {
         request_link: '#request',
         status_link: '#status',
