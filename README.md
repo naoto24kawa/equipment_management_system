@@ -22,7 +22,7 @@
 #### POST
 
 | JSON key | 型 | 必須 | 説明 |  
-| - | - | - |  
+| - | - | - | - |  
 | status | Number | ○ | 0: 空室, 1: 満室 |  
 
 ---
@@ -45,7 +45,7 @@
 #### POST
 
 | JSON key | 型 | 必須 | 説明 |  
-| - | - | - |  
+| - | - | - | - |  
 | user | String | × | 依頼者名 |  
 | equipment | String | × | 備品名称 |  
 | quantity | Number | × | 数量（単位は無い） |  
