@@ -13,5 +13,5 @@ block content
                 input#inputPassword.form-control(type='password', placeholder='Re Enter Password', required)
             div.checkbox
                 label: input(type='checkbox', value='remember-me')
-                | Remember me    
+                |!{&nbsp}Remember me    
             button.btn.btn-lg.btn-primary.btn-block(type='submit') #{method != 'up' ? 'Sign in' : 'Sign up'}
