@@ -41,6 +41,7 @@
 | timestamp | Date | 更新日付 |  
 | status | Number | 0: 論理削除, 1: 依頼, 2: 発注, 3: 完了, 4: 却下 |  
 
+
 #### POST
 
 | JSON key | 型 | 必須 | 説明 |  
@@ -51,3 +52,4 @@
 | remarks | String | × | 備考として |  
 | url | String | × |  |  
 | status | Number | ○ | 0: 論理削除, 1: 依頼, 2: 発注, 3: 完了, 4: 却下 |  
+
