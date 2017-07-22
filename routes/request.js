@@ -6,7 +6,7 @@ mongoose.connect('mongodb://localhost/equipment_management_system');
 
 var Request = require('../app/models/request');
 
-router.get('/api/request', function (req, res, next) {
+router.get('/api', function (req, res, next) {
     Request.find()
         .sort({
             'timestamp': -1

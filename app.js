@@ -35,7 +35,7 @@ app.use(methodOverride(function (req, res) {
 }));
 
 app.use('/', index);
-app.use('/', request);
+app.use('/request', request);
 app.use('/toilet', toilet);
 
 // catch 404 and forward to error handler
