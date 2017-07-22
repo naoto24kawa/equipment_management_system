@@ -21,3 +21,7 @@ $(function () {
         return false;
     });
 });
+
+function checkPasswd() {
+    return false;
+}
