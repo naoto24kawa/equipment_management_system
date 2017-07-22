@@ -27,4 +27,37 @@ router.get('/', function (req, res, next) {
         });
 });
 
+router.get('/signin', function (req, res, next) {
+    if (err)
+        res.send(err);
+    res.render('sign', {
+        request_link: '#request',
+        status_link: '#status',
+        log_link: '#log',
+        method: 'in'
+    });
+});
+
+router.post('/signin', passport.authenticate('local', {
+    failureRedirect: '/◆◆', // 失敗したときの遷移先
+    successRedirect: '/◇◇', // 成功したときの遷移先
+}), function (req, res, next) {
+    //成功時の処理
+});
+
+router.get('/signup', function (req, res, next) {
+    if (err)
+        res.send(err);
+    res.render('sign', {
+        request_link: '#request',
+        status_link: '#status',
+        log_link: '#log',
+        method: 'up'
+    });
+});
+
+router.post('/signup', function (req, res, next) {
+    //成功時の処理
+});
+
 module.exports = router;

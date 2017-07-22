@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    div.container
+        form.form-signin
+            h2.form-signin-heading Please #{method != 'up' ? 'sign in' : 'sign up'}
+            label.sr-only(for='inputEmail') User Name
+            input#inputUser.form-control(type='text', placeholder='User name', required, autofocus)
+            label.sr-only(for='inputPassword') Password
+            input#inputPassword.form-control(type='password', placeholder='Password', required)
+            if(#{method} == 'up') {
+                label.sr-only(for='confirmPassword') Re Enter Password
+                input#inputPassword.form-control(type='password', placeholder='Re Enter Password', required)
+            }
+            div.checkbox
+                label
+                    input(type='checkbox', value='remember-me') Remember me
+            button.btn.btn-lg.btn-primary.btn-block(type='submit') #{method != 'up' ? 'Sign in' : 'Sign up'}

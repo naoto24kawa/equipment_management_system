@@ -5,10 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 var index = require('./routes/index');
 var request = require('./routes/request');
 var toilet = require('./routes/toilet');
+
+var User = require('./app/models/user');
 
 var app = express();
 
@@ -25,6 +29,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(methodOverride(function (req, res) {
     if (req.body && typeof req.body === 'object' && '_method' in req.body) {
         // look in urlencoded POST bodies and delete it
@@ -32,6 +37,23 @@ app.use(methodOverride(function (req, res) {
         delete req.body._method;
         return method;
     }
+}));
+
+app.use(passport.initialize());
+passport.use(new LocalStrategy(function (username, password, done) {
+    User.findOne({
+        username: username
+    }).exec(function (err, user) {
+        if (err) {
+            return done(err);
+        }
+        if (!user || !user.validPassword(password)) {
+            return done(null, false, {
+                message: 'ユーザー情報が正しくありません。'
+            });
+        }
+        return done(null, user);
+    });
 }));
 
 app.use('/', index);
