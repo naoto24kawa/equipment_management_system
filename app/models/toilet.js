@@ -6,8 +6,8 @@ var ToiletSchema = new Schema({
     timestamp: Date
     /*
      * ステータス一覧
-     * 0: 満室
-     * 1: 空室
+     * 0: 空室
+     * 1: 満室
      */
 });
 

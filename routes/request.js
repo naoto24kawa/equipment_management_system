@@ -18,7 +18,7 @@ router.get('/api', function (req, res, next) {
         });
 });
 
-router.post('/api/request', function (req, res, next) {
+router.post('/api', function (req, res, next) {
 
     var request = new Request();
 
@@ -38,7 +38,7 @@ router.post('/api/request', function (req, res, next) {
 
 });
 
-router.put('/api/request', function (req, res, next) {
+router.put('/api', function (req, res, next) {
 
     Request.findById(req.body.request_id, function (err, request) {
         if (err)

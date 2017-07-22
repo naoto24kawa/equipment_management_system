@@ -7,7 +7,7 @@ mongoose.connect('mongodb://localhost/equipment_management_system');
 var Toilet = require('../app/models/toilet');
 
 router.get('/api', function (req, res, next) {
-    Request.find()
+    Toilet.find()
         .sort({
             'timestamp': -1
         })
@@ -22,10 +22,10 @@ router.post('/api', function (req, res, next) {
 
     var toilet = new Toilet();
 
-    request.status = req.body.status;
-    request.timestamp = Date.now();
+    toilet.status = req.body.status;
+    toilet.timestamp = Date.now();
 
-    request.save(function (err) {
+    toilet.save(function (err) {
         if (err)
             res.send(err);
         res.json({message: 'success create toilet status.'});
