@@ -8,10 +8,9 @@ block content
             input#inputUser.form-control(type='text', placeholder='User name', required, autofocus)
             label.sr-only(for='inputPassword') Password
             input#inputPassword.form-control(type='password', placeholder='Password', required)
-            if(#{method == 'up'}) {
+            if #{method} == 'up'
                 label.sr-only(for='confirmPassword') Re Enter Password
                 input#inputPassword.form-control(type='password', placeholder='Re Enter Password', required)
-            }
             div.checkbox
                 label
                     input(type='checkbox', value='remember-me') Remember me
