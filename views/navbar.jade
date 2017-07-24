@@ -12,8 +12,8 @@ nav.navbar.navbar-toggleable-md.navbar-inverse.fixed-top.bg-inverse
                 li.nav-item
                     a(href=log_link).nav-link 履歴
             div.navbar-right
-                form
-                    button.btn.btn-primary.btn-outline-success.my-2.my-sm-0(type='button', onClick='location.href='/signin'')|Sign in
+                button.btn.btn-primary.btn-outline-success.my-2.my-sm-0(type='button')
+                    a(href='/signin')|Sign in
                 label.text-muted &nbspまたは&nbsp
-                form
-                    button.btn.btn-primary.btn-outline-success.my-2.my-sm-0(type='button', onClick='location.href='/signup'')|Sign up
+                button.btn.btn-primary.btn-outline-success.my-2.my-sm-0(type='button')
+                    a(href='/signup', style='width:100%; height:100%;')|Sign up
