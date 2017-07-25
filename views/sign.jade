@@ -18,4 +18,4 @@ block content
                 &nbsp
                 |me  
                 &nbsp
-            button.btn.btn-lg.btn-primary.btn-block(type='submit', action='/signup') #{method != 'up' ? 'Sign in' : 'Sign up'}
+            button.btn.btn-lg.btn-primary.btn-block(type='submit', method='POST', action='/signup') #{method != 'up' ? 'Sign in' : 'Sign up'}
