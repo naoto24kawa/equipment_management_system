@@ -41,22 +41,54 @@ app.use(methodOverride(function (req, res) {
     }
 }));
 
-app.use(passport.initialize());
-passport.use(new LocalStrategy(function (username, password, done) {
-    User.findOne({
-        username: username
-    }).exec(function (err, user) {
-        if (err) {
-            return done(err);
+// passport が ユーザー情報をシリアライズすると呼び出されます
+passport.serializeUser(function (id, done) {
+    done(null, id);
+});
+
+// passport が ユーザー情報をデシリアライズすると呼び出されます
+passport.deserializeUser(function (id, done) {
+    User.findById(id, (error, user) => {
+        if (error) {
+            return done(error);
         }
-        if (!user || !user.validPassword(password)) {
-            return done(null, false, {
-                message: 'ユーザー情報が正しくありません。'
-            });
-        }
-        return done(null, user);
+        done(null, user);
     });
+});
+
+// passport における具体的な認証処理を設定します。
+passport.use(
+    "local",
+    new LocalStrategy({
+        usernameField: "name",
+        passwordField: "password",
+        passReqToCallback: true
+    }, function (request, name, password, done) {
+        process.nextTick(() => {
+            User.findOne({
+                'name': name
+            }, function (error, user) {
+                if (error) {
+                    return done(error);
+                }
+                if (!user || user.password != password) {
+                    return done(null, false, request.flash("message", "Invalid username or password."));
+                }
+                // 保存するデータは必要最低限にする
+                return done(null, user._id);
+            });
+        });
+    })
+);
+
+// passport設定
+app.use(session({
+    secret: "some salt",
+    resave: true,
+    saveUninitialized: true
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', index);
 app.use('/request', request);

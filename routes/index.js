@@ -37,12 +37,12 @@ router.get('/signin', function (req, res, next) {
     });
 });
 
-//router.post('/signin', passport.authenticate('local', {
-//    failureRedirect: '/◆◆', // 失敗したときの遷移先
-//    successRedirect: '/◇◇', // 成功したときの遷移先
-//}), function (req, res, next) {
-//    //成功時の処理
-//});
+router.post('/signin', passport.authenticate('local', {
+    failureRedirect: '/signin', // 失敗したときの遷移先
+//    successRedirect: '/dashboard', // 成功したときの遷移先
+}), function (req, res, next) {
+    res.redirect('/');
+});
 
 router.get('/signup', function (req, res, next) {
     res.render('sign', {
@@ -62,9 +62,6 @@ router.post('/signup', function (req, res, next) {
     user.save(function (err) {
         if (err)
             res.send(err);
-        res.json({
-            message: 'success create user.'
-        });
         res.redirect('/');
     });
 });
