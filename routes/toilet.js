@@ -6,6 +6,10 @@ mongoose.connect('mongodb://localhost/equipment_management_system');
 
 var Toilet = require('../app/models/toilet');
 
+router.get('/', function (req, res, next) {
+    res.render('toilet');
+});
+
 router.get('/api', function (req, res, next) {
     Toilet.find()
         .sort({
