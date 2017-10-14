@@ -36,16 +36,23 @@ router.post('/api', function (req, res, next) {
 
     var toilet = new Toilet();
 
-    toilet.status = req.body.status;
-    toilet.timestamp = Date.now();
+    if (req.body.status != null) {
+        toilet.status = req.body.status;
+        toilet.timestamp = Date.now();
 
-    toilet.save(function (err) {
-        if (err)
-            res.send(err);
-        res.json({
-            message: 'success create toilet status.'
+        toilet.save(function (err) {
+            if (err)
+                res.send(err);
+            res.json({
+                message: 'success create toilet status.\n' + req.body
+            });
         });
-    });
+    } else {
+        res.json({
+                message: 'not found status.\n' + req.body
+            });
+    }
+
 
 });
 
