@@ -44,12 +44,12 @@ router.post('/api', function (req, res, next) {
             if (err)
                 res.send(err);
             res.json({
-                message: 'success create toilet status.\n' + req.body
+                message: 'success create toilet status.'
             });
         });
     } else {
         res.json({
-                message: 'not found status.\n' + req.body
+                message: 'not found toilet status.'
             });
     }
 
