@@ -64,7 +64,7 @@ toilet_router.post('/api', function (req, res, next) {
             });
         });
         // これやりたいけど難しそう
-        io.emit(`toilet`, toilet_model.status);
+        socketio.emit(`toilet`, toilet_model.status);
     } else {
         res.json({
             message: 'not found toilet status.'
@@ -177,6 +177,7 @@ app.use(function (err, req, res, next) {
 // ==============================
 
 var http = require('http');
+var debug = require('debug')('equipment-management-system:server');
 
 /**
  * Get port from environment and store in Express.
