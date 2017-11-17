@@ -11,7 +11,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var index = require('./routes/index');
 var request = require('./routes/request');
-var toilet = require('./routes/toilet');
+//var toilet = require('./routes/toilet');
 
 // ==============================
 
@@ -20,7 +20,35 @@ var Toilet = require('./app/models/toilet')
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/equipment_management_system');
 
-toilet.router.post('/api', function (req, res, next) {
+var toilet_router = express.Router();
+
+toilet_router.get('/', function (req, res, next) {
+    Toilet.find()
+        .sort({
+            'timestamp': -1
+        })
+        .exec(function (err, toilets) {
+            if (err)
+                res.send(err);
+            res.render('toilet', {
+                status: toilets[0].status
+            });
+        });
+});
+
+toilet_router.get('/api', function (req, res, next) {
+    Toilet.find()
+        .sort({
+            'timestamp': -1
+        })
+        .exec(function (err, toilets) {
+            if (err)
+                res.send(err);
+            res.json(toilets);
+        });
+});
+
+toilet_router.post('/api', function (req, res, next) {
 
     var toilet_model = new Toilet();
 
@@ -122,7 +150,7 @@ app.use(passport.session());
 
 app.use('/', index);
 app.use('/request', request);
-app.use('/toilet', toilet);
+app.use('/toilet', toilet_router);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
