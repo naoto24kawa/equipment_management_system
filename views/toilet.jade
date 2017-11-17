@@ -18,8 +18,8 @@ html
     body
     
         case status
-            when 0: img(src='images/empty.png' style='text-align: center;')
-            when 1: img(src='images/using.png' style='text-align: center;')
+            when 0: img(id='toilet_status', src='images/empty.png' style='text-align: center;')
+            when 1: img(id='toilet_status', src='images/using.png' style='text-align: center;')
 
         include footer.jade
 
@@ -27,6 +27,5 @@ html
         script window.jQuery || document.write('<script src='../../assets/js/vendor/jquery.min.js'><\/script>')
         script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
         script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js", integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn", crossorigin="anonymous")
-        script(src='/javascripts/application.js')
         script(src='/socket.io/socket.io.js')
         script(src='/javascripts/toilet.js')

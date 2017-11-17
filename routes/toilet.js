@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+var http = require('http').Server(express);
+var io = require('socket.io')(http);
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/equipment_management_system');
 
@@ -47,13 +50,13 @@ router.post('/api', function (req, res, next) {
                 message: 'success create toilet status.'
             });
         });
+        
+        io.emit(`toilet`, toilet.status);
     } else {
         res.json({
-                message: 'not found toilet status.'
-            });
+            message: 'not found toilet status.'
+        });
     }
-
-
 });
 
 module.exports = router;
