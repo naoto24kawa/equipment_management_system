@@ -1,9 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-var http = require('http').Server(express);
-var io = require('socket.io')(http);
-
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/equipment_management_system');
 
@@ -35,28 +32,28 @@ router.get('/api', function (req, res, next) {
         });
 });
 
-router.post('/api', function (req, res, next) {
-
-    var toilet = new Toilet();
-
-    if (req.body.status != null) {
-        toilet.status = req.body.status;
-        toilet.timestamp = Date.now();
-
-        toilet.save(function (err) {
-            if (err)
-                res.send(err);
-            res.json({
-                message: 'success create toilet status.'
-            });
-        });
-        
-        io.emit(`toilet`, toilet.status);
-    } else {
-        res.json({
-            message: 'not found toilet status.'
-        });
-    }
-});
+//router.post('/api', function (req, res, next) {
+//
+//    var toilet = new Toilet();
+//
+//    if (req.body.status != null) {
+//        toilet.status = req.body.status;
+//        toilet.timestamp = Date.now();
+//
+//        toilet.save(function (err) {
+//            if (err)
+//                res.send(err);
+//            res.json({
+//                message: 'success create toilet status.'
+//            });
+//        });
+//        // これやりたいけど難しそう
+//        // io.emit(`toilet`, toilet.status);
+//    } else {
+//        res.json({
+//            message: 'not found toilet status.'
+//        });
+//    }
+//});
 
 module.exports = router;

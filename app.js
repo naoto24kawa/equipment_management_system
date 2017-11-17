@@ -13,6 +13,39 @@ var index = require('./routes/index');
 var request = require('./routes/request');
 var toilet = require('./routes/toilet');
 
+// ==============================
+
+var Toilet = require('./app/models/toilet')
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/equipment_management_system');
+
+toilet.router.post('/api', function (req, res, next) {
+
+    var toilet_model = new Toilet();
+
+    if (req.body.status != null) {
+        toilet_model.status = req.body.status;
+        toilet_model.timestamp = Date.now();
+
+        toilet_model.save(function (err) {
+            if (err)
+                res.send(err);
+            res.json({
+                message: 'success create toilet status.'
+            });
+        });
+        // これやりたいけど難しそう
+        // io.emit(`toilet`, toilet_model.status);
+    } else {
+        res.json({
+            message: 'not found toilet status.'
+        });
+    }
+});
+
+// ==============================
+
 var User = require('./app/models/user');
 
 var app = express();
