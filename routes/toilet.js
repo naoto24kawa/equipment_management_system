@@ -57,3 +57,4 @@ router.get('/api', function (req, res, next) {
 //});
 
 module.exports = router;
+exports = router;
