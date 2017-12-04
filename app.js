@@ -10,7 +10,7 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 
-app.use('/', express.static('public/plise_propaganda_2017/html/index.html'));
+app.use(express.static('public/plise_propaganda_2017/html/index.html'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
