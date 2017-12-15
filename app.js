@@ -18,7 +18,7 @@ var request = require('./routes/request');
 var Toilet = require('./app/models/toilet')
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/equipment_management_system');
+mongoose.connect('mongodb://heroku_qb55r46q:5mhum2i8dqoqhp8k4h8nuulqfv@ds015690.mlab.com:15690/heroku_qb55r46q');
 
 var toilet_router = express.Router();
 
